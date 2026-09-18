@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080a0f">
+<title>Home Calisthenics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=5">
+</head>
+<body>
+<header class="topbar">
+<a class="brand" href="#library"><span class="brand-mark">HC</span><span><b>HOME CALISTHENICS</b><small>100+ EQUIPMENT-FREE MOVEMENTS</small></span></a>
+<button class="today" id="todayBtn">TODAY ↗</button>
+</header>
+<main class="wrap" id="library">
+<section class="hero"><div><p class="eyebrow">MOVEMENT DATABASE</p><h1>Exercise library</h1><p class="sub">100 equipment-free calisthenics movements, organized by level and training focus.</p></div><div class="count"><strong id="count">100</strong><span>MOVEMENTS</span></div></section>
+<section class="controls"><div class="search-wrap"><input id="search" type="search" placeholder="Search exercises..." autocomplete="off"><button id="clearSearch" class="clear" aria-label="Clear search">×</button></div>
+<select id="category" aria-label="Exercise category"><option value="all">All categories</option><option value="Push">Push</option><option value="Legs">Legs</option><option value="Core">Core</option><option value="Full Body">Full Body</option><option value="Mobility">Mobility</option></select></section>
+<div class="levels" id="levels"><button class="active" data-level="all">All</button><button data-level="beginner">Beginner</button><button data-level="intermediate">Intermediate</button><button data-level="pro">Pro</button></div>
+<div class="filter-summary" id="summary"></div><section class="grid" id="grid"></section>
+<div class="no-results hidden" id="empty"><strong>No movements found</strong><span>Try another search, level, or category.</span></div>
+</main>
+<footer>HOME CALISTHENICS <i></i> Your progress stays on this device.</footer>
+<script src="script.js?v=5"></script>
+</body></html>
