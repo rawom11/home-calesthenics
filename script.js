@@ -1,37 +1,1298 @@
-const EXERCISES=[{"id": 1, "name": "Wall Push-Up", "level": "beginner", "category": "Push", "desc": "Standing push variation using a wall."}, {"id": 2, "name": "Incline Push-Up", "level": "beginner", "category": "Push", "desc": "Push-up variation using a stable elevated surface."}, {"id": 3, "name": "Knee Push-Up", "level": "beginner", "category": "Push", "desc": "Modified push-up with knees supported."}, {"id": 4, "name": "Standard Push-Up", "level": "beginner", "category": "Push", "desc": "Classic bodyweight horizontal push."}, {"id": 5, "name": "Wide Push-Up", "level": "beginner", "category": "Push", "desc": "Push-up with a wider hand position."}, {"id": 6, "name": "Close Push-Up", "level": "beginner", "category": "Push", "desc": "Push-up with hands closer together."}, {"id": 7, "name": "Scapular Push-Up", "level": "beginner", "category": "Push", "desc": "Controlled shoulder-blade movement from a plank."}, {"id": 8, "name": "Push-Up Pause", "level": "beginner", "category": "Push", "desc": "Push-up with a brief controlled pause."}, {"id": 9, "name": "Slow Push-Up", "level": "beginner", "category": "Push", "desc": "Push-up emphasizing a slow, controlled tempo."}, {"id": 10, "name": "Pike Hold", "level": "beginner", "category": "Push", "desc": "Static pike position for shoulder control."}, {"id": 11, "name": "Wall Plank", "level": "beginner", "category": "Push", "desc": "Standing plank-style position against a wall."}, {"id": 12, "name": "Bear Plank", "level": "beginner", "category": "Push", "desc": "Hands-and-feet support position with knees hovering."}, {"id": 13, "name": "Bodyweight Squat", "level": "beginner", "category": "Legs", "desc": "Basic lower-body squat."}, {"id": 14, "name": "Box Squat to Stable Surface", "level": "beginner", "category": "Legs", "desc": "Squat pattern using a stable surface as a depth guide."}, {"id": 15, "name": "Reverse Lunge", "level": "beginner", "category": "Legs", "desc": "Controlled step-back lunge."}, {"id": 16, "name": "Forward Lunge", "level": "beginner", "category": "Legs", "desc": "Controlled step-forward lunge."}, {"id": 17, "name": "Split Squat", "level": "beginner", "category": "Legs", "desc": "Stationary single-leg squat pattern."}, {"id": 18, "name": "Glute Bridge", "level": "beginner", "category": "Legs", "desc": "Floor-based hip extension movement."}, {"id": 19, "name": "Calf Raise", "level": "beginner", "category": "Legs", "desc": "Standing calf-strength movement."}, {"id": 20, "name": "Wall Sit", "level": "beginner", "category": "Legs", "desc": "Static seated position against a wall."}, {"id": 21, "name": "March in Place", "level": "beginner", "category": "Legs", "desc": "Low-impact alternating knee lift."}, {"id": 22, "name": "Step-Back Squat", "level": "beginner", "category": "Legs", "desc": "Squat followed by an alternating step back."}, {"id": 23, "name": "Good Morning", "level": "beginner", "category": "Legs", "desc": "Hip-hinge movement with bodyweight only."}, {"id": 24, "name": "Standing Hip Abduction", "level": "beginner", "category": "Legs", "desc": "Controlled side leg lift."}, {"id": 25, "name": "Standing Hip Extension", "level": "beginner", "category": "Legs", "desc": "Controlled backward leg movement."}, {"id": 26, "name": "Dead Bug", "level": "beginner", "category": "Core", "desc": "Controlled core movement performed on the floor."}, {"id": 27, "name": "Bird Dog", "level": "beginner", "category": "Core", "desc": "Opposite arm-and-leg balance exercise."}, {"id": 28, "name": "Forearm Plank", "level": "beginner", "category": "Core", "desc": "Static full-body plank on the forearms."}, {"id": 29, "name": "High Plank", "level": "beginner", "category": "Core", "desc": "Static plank on straight arms."}, {"id": 30, "name": "Side Plank from Knees", "level": "beginner", "category": "Core", "desc": "Modified side plank with knees supported."}, {"id": 31, "name": "Glute Bridge March", "level": "beginner", "category": "Core", "desc": "Alternating march from a bridge position."}, {"id": 32, "name": "Heel Taps", "level": "beginner", "category": "Core", "desc": "Alternating heel reach from a floor position."}, {"id": 33, "name": "Knee-to-Chest Crunch", "level": "beginner", "category": "Core", "desc": "Controlled abdominal flexion."}, {"id": 34, "name": "Seated Knee Tuck", "level": "beginner", "category": "Core", "desc": "Seated core movement with controlled knee motion."}, {"id": 35, "name": "Standing Knee Drive", "level": "beginner", "category": "Core", "desc": "Alternating knee drive with upright posture."}, {"id": 36, "name": "Cat-Cow", "level": "beginner", "category": "Mobility", "desc": "Gentle spinal mobility sequence."}, {"id": 37, "name": "Child's Pose", "level": "beginner", "category": "Mobility", "desc": "Gentle recovery and mobility position."}, {"id": 38, "name": "World's Greatest Stretch", "level": "beginner", "category": "Mobility", "desc": "Multi-directional mobility sequence."}, {"id": 39, "name": "Hip Flexor Stretch", "level": "beginner", "category": "Mobility", "desc": "Gentle front-of-hip stretch."}, {"id": 40, "name": "Hamstring Stretch", "level": "beginner", "category": "Mobility", "desc": "Gentle posterior-leg stretch."}, {"id": 41, "name": "Shoulder Circles", "level": "beginner", "category": "Mobility", "desc": "Controlled shoulder circles."}, {"id": 42, "name": "Thoracic Rotation", "level": "beginner", "category": "Mobility", "desc": "Gentle upper-back rotation."}, {"id": 43, "name": "Ankle Rocks", "level": "beginner", "category": "Mobility", "desc": "Controlled ankle mobility drill."}, {"id": 44, "name": "Neck Mobility", "level": "beginner", "category": "Mobility", "desc": "Gentle neck range-of-motion movements."}, {"id": 45, "name": "Standing Side Bend", "level": "beginner", "category": "Mobility", "desc": "Gentle side-body mobility."}, {"id": 46, "name": "Diamond Push-Up", "level": "intermediate", "category": "Push", "desc": "Narrow-hand push-up variation."}, {"id": 47, "name": "Decline Push-Up", "level": "intermediate", "category": "Push", "desc": "Push-up with feet on a stable elevated surface."}, {"id": 48, "name": "Pike Push-Up", "level": "intermediate", "category": "Push", "desc": "Bodyweight shoulder-focused push-up."}, {"id": 49, "name": "Explosive Push-Up", "level": "intermediate", "category": "Push", "desc": "Fast upward push emphasizing power."}, {"id": 50, "name": "Archer Push-Up Prep", "level": "intermediate", "category": "Push", "desc": "Uneven loading preparation for advanced pushing."}, {"id": 51, "name": "Push-Up 1.5 Rep", "level": "intermediate", "category": "Push", "desc": "Push-up using a partial-rep variation."}, {"id": 52, "name": "Tempo Diamond Push-Up", "level": "intermediate", "category": "Push", "desc": "Narrow push-up with deliberate tempo."}, {"id": 53, "name": "Pseudo Planche Lean", "level": "intermediate", "category": "Push", "desc": "Forward-leaning bodyweight support drill."}, {"id": 54, "name": "Cossack Squat", "level": "intermediate", "category": "Legs", "desc": "Side-to-side squat emphasizing mobility and strength."}, {"id": 55, "name": "Bulgarian Split Squat", "level": "intermediate", "category": "Legs", "desc": "Single-leg squat with rear foot on a stable surface."}, {"id": 56, "name": "Jump Squat", "level": "intermediate", "category": "Legs", "desc": "Squat pattern with a controlled jump."}, {"id": 57, "name": "Single-Leg Calf Raise", "level": "intermediate", "category": "Legs", "desc": "Calf raise performed one leg at a time."}, {"id": 58, "name": "Lateral Lunge", "level": "intermediate", "category": "Legs", "desc": "Side-stepping lunge pattern."}, {"id": 59, "name": "Curtsy Lunge", "level": "intermediate", "category": "Legs", "desc": "Diagonal step-back lunge variation."}, {"id": 60, "name": "Reverse Lunge to Knee Drive", "level": "intermediate", "category": "Legs", "desc": "Lunge followed by an upright knee drive."}, {"id": 61, "name": "Skater Squat Prep", "level": "intermediate", "category": "Legs", "desc": "Single-leg squat balance progression."}, {"id": 62, "name": "Single-Leg Glute Bridge", "level": "intermediate", "category": "Legs", "desc": "Bridge performed with one leg extended."}, {"id": 63, "name": "Wall Sit March", "level": "intermediate", "category": "Legs", "desc": "Alternating leg lift from a wall sit."}, {"id": 64, "name": "Hollow Body Hold", "level": "intermediate", "category": "Core", "desc": "Static hollow-body trunk position."}, {"id": 65, "name": "V-Up", "level": "intermediate", "category": "Core", "desc": "Dynamic full-body abdominal movement."}, {"id": 66, "name": "Leg Raise", "level": "intermediate", "category": "Core", "desc": "Controlled straight-leg raise from the floor."}, {"id": 67, "name": "Side Plank", "level": "intermediate", "category": "Core", "desc": "Full side plank hold."}, {"id": 68, "name": "Plank Shoulder Tap", "level": "intermediate", "category": "Core", "desc": "Alternating shoulder taps from a high plank."}, {"id": 69, "name": "Bear Crawl", "level": "intermediate", "category": "Core", "desc": "Controlled crawling pattern on hands and feet."}, {"id": 70, "name": "Mountain Climber", "level": "intermediate", "category": "Core", "desc": "Alternating knee-drive movement from plank."}, {"id": 71, "name": "Reverse Crunch", "level": "intermediate", "category": "Core", "desc": "Controlled lower-abdominal curl."}, {"id": 72, "name": "Bicycle Crunch", "level": "intermediate", "category": "Core", "desc": "Alternating rotational abdominal movement."}, {"id": 73, "name": "Plank Walk", "level": "intermediate", "category": "Core", "desc": "Controlled hand movement while maintaining a plank."}, {"id": 74, "name": "Hollow Rock Prep", "level": "intermediate", "category": "Core", "desc": "Gentle rocking preparation for hollow-body control."}, {"id": 75, "name": "Burpee", "level": "intermediate", "category": "Full Body", "desc": "Full-body squat-to-plank movement."}, {"id": 76, "name": "Squat Thrust", "level": "intermediate", "category": "Full Body", "desc": "Dynamic squat-to-plank movement without a jump."}, {"id": 77, "name": "Inchworm", "level": "intermediate", "category": "Full Body", "desc": "Walkout movement combining mobility and core control."}, {"id": 78, "name": "Bear Walk", "level": "intermediate", "category": "Full Body", "desc": "Low crawling movement using bodyweight."}, {"id": 79, "name": "Crab Walk", "level": "intermediate", "category": "Full Body", "desc": "Reverse-support crawling movement."}, {"id": 80, "name": "Lateral Bear Crawl", "level": "intermediate", "category": "Full Body", "desc": "Sideways crawling pattern."}, {"id": 81, "name": "Jumping Jack", "level": "intermediate", "category": "Full Body", "desc": "Low-complexity full-body conditioning movement."}, {"id": 82, "name": "High Knees", "level": "intermediate", "category": "Full Body", "desc": "Alternating fast knee-drive conditioning."}, {"id": 83, "name": "Plank to Down Dog", "level": "intermediate", "category": "Mobility", "desc": "Controlled transition between plank and downward-facing position."}, {"id": 84, "name": "Deep Squat Hold", "level": "intermediate", "category": "Mobility", "desc": "Supported or controlled deep squat mobility hold."}, {"id": 85, "name": "90/90 Hip Switch", "level": "intermediate", "category": "Mobility", "desc": "Controlled hip rotation drill."}, {"id": 86, "name": "Archer Push-Up", "level": "pro", "category": "Push", "desc": "Advanced uneven-loading push-up."}, {"id": 87, "name": "Typewriter Push-Up", "level": "pro", "category": "Push", "desc": "Advanced side-to-side push-up variation."}, {"id": 88, "name": "Pseudo Planche Push-Up", "level": "pro", "category": "Push", "desc": "Advanced forward-leaning push-up."}, {"id": 89, "name": "Handstand Hold", "level": "pro", "category": "Push", "desc": "Advanced inverted balance movement; use a clear safe space."}, {"id": 90, "name": "Wall Handstand Push-Up", "level": "pro", "category": "Push", "desc": "Advanced inverted pressing movement against a wall."}, {"id": 91, "name": "One-Arm Push-Up Progression", "level": "pro", "category": "Push", "desc": "Advanced unilateral push-up progression."}, {"id": 92, "name": "Shrimp Squat Progression", "level": "pro", "category": "Legs", "desc": "Advanced single-leg squat progression."}, {"id": 93, "name": "Pistol Squat Progression", "level": "pro", "category": "Legs", "desc": "Advanced single-leg squat progression."}, {"id": 94, "name": "Assisted Pistol Squat", "level": "pro", "category": "Legs", "desc": "Single-leg squat progression using a stable support."}, {"id": 95, "name": "Dragon Flag Progression", "level": "pro", "category": "Core", "desc": "Advanced trunk-control progression."}, {"id": 96, "name": "L-Sit Tuck Hold", "level": "pro", "category": "Core", "desc": "Advanced static compression hold."}, {"id": 97, "name": "V-Sit Progression", "level": "pro", "category": "Core", "desc": "Advanced compression and balance progression."}, {"id": 98, "name": "Handstand Walk Progression", "level": "pro", "category": "Full Body", "desc": "Advanced inverted balance progression; use a clear open space."}, {"id": 99, "name": "Burpee Broad Jump", "level": "pro", "category": "Full Body", "desc": "Advanced explosive full-body conditioning movement."}, {"id": 100, "name": "Tuck Jump", "level": "pro", "category": "Full Body", "desc": "Explosive jump with knees lifted toward the torso."}];
-const state={level:"all",category:"all",query:""};
-const $=id=>document.getElementById(id);
-const clean=s=>String(s).toLowerCase();
+/* ==========================================
+   CALISTHENICS WORKOUT TRACKER
+========================================== */
 
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));}
-function levelLabel(l){return l==="pro"?"PRO":l.toUpperCase();}
 
-function render(){
- const q=clean(state.query.trim());
- const items=EXERCISES.filter(e=>
-   (state.level==="all"||e.level===state.level)&&
-   (state.category==="all"||e.category===state.category)&&
-   (!q||clean(e.name+" "+e.category+" "+e.level+" "+e.desc).includes(q))
- );
- $("count").textContent=items.length;
- $("summary").textContent=`${state.level==="all"?"ALL LEVELS":levelLabel(state.level)} · ${state.category==="all"?"ALL CATEGORIES":state.category}`;
- $("grid").innerHTML=items.map(e=>`
- <article class="card">
-  <div class="card-top"><span class="tag ${e.level}">${levelLabel(e.level)}</span><span class="cat">${esc(e.category)}</span></div>
-  <h2>${esc(e.name)}</h2><p>${esc(e.desc)}</p>
-  <div class="card-foot"><span class="id">#${String(e.id).padStart(3,"0")}</span><button class="add" data-id="${e.id}">+ Add</button></div>
- </article>`).join("");
- $("empty").classList.toggle("hidden",items.length>0);
- document.querySelectorAll("[data-id]").forEach(b=>b.onclick=()=>{b.textContent="Added ✓";b.disabled=true;});
+/* ==========================================
+   WORKOUT DATA
+========================================== */
+
+/*
+    JavaScript day numbers:
+
+    Sunday    = 0
+    Monday    = 1
+    Tuesday   = 2
+    Wednesday = 3
+    Thursday  = 4
+    Friday    = 5
+    Saturday  = 6
+*/
+
+
+const workouts = {
+
+    1: {
+
+        name: "Upper Body + Arms",
+
+        focus:
+            "Chest • Triceps • Biceps • Core",
+
+        exercises: [
+
+            {
+                name: "Push-ups",
+                target: "2 × 8–12",
+                muscle: "Chest + Triceps",
+                image: "💪"
+            },
+
+            {
+                name: "Close-grip Push-ups",
+                target: "2 × 6–10",
+                muscle: "Triceps",
+                image: "🔥"
+            },
+
+            {
+                name: "Backpack Biceps Curls",
+                target: "2 × 10–12",
+                muscle: "Biceps",
+                image: "🎒"
+            },
+
+            {
+                name: "Forearm Plank",
+                target: "2 × 20–40 sec",
+                muscle: "Core",
+                image: "⚡"
+            }
+
+        ]
+
+    },
+
+
+    2: {
+
+        name: "Legs + Light Cardio",
+
+        focus:
+            "Legs • Glutes • Fitness",
+
+        exercises: [
+
+            {
+                name: "Bodyweight Squats",
+                target: "2 × 12–15",
+                muscle: "Legs",
+                image: "🦵"
+            },
+
+            {
+                name: "Reverse Lunges",
+                target: "2 × 8 each leg",
+                muscle: "Legs + Balance",
+                image: "🏃"
+            },
+
+            {
+                name: "Calf Raises",
+                target: "2 × 15–20",
+                muscle: "Calves",
+                image: "👟"
+            },
+
+            {
+                name: "Brisk Walk / Easy Sport",
+                target: "15–20 min",
+                muscle: "Cardio",
+                image: "🚴"
+            }
+
+        ]
+
+    },
+
+
+    3: {
+
+        name: "Core + Mobility",
+
+        focus:
+            "Abs • Core Stability • Mobility",
+
+        exercises: [
+
+            {
+                name: "Dead Bugs",
+                target: "2 × 8 each side",
+                muscle: "Core",
+                image: "🪲"
+            },
+
+            {
+                name: "Forearm Plank",
+                target: "2 × 20–40 sec",
+                muscle: "Core",
+                image: "⚡"
+            },
+
+            {
+                name: "Bird Dogs",
+                target: "2 × 8 each side",
+                muscle: "Core + Balance",
+                image: "🐕"
+            },
+
+            {
+                name: "Gentle Stretching",
+                target: "3–5 min",
+                muscle: "Mobility",
+                image: "🧘"
+            }
+
+        ]
+
+    },
+
+
+    4: {
+
+        name: "Upper Body + Arms",
+
+        focus:
+            "Chest • Triceps • Biceps",
+
+        exercises: [
+
+            {
+                name: "Push-ups",
+                target: "2 × 8–12",
+                muscle: "Chest + Triceps",
+                image: "💪"
+            },
+
+            {
+                name: "Close-grip Push-ups",
+                target: "2 × 6–10",
+                muscle: "Triceps",
+                image: "🔥"
+            },
+
+            {
+                name: "Backpack Biceps Curls",
+                target: "2 × 10–12",
+                muscle: "Biceps",
+                image: "🎒"
+            },
+
+            {
+                name: "Shoulder Mobility",
+                target: "3 min",
+                muscle: "Shoulders",
+                image: "🔄"
+            }
+
+        ]
+
+    },
+
+
+    5: {
+
+        name: "Legs + Core",
+
+        focus:
+            "Legs • Glutes • Abs",
+
+        exercises: [
+
+            {
+                name: "Bodyweight Squats",
+                target: "2 × 12–15",
+                muscle: "Legs",
+                image: "🦵"
+            },
+
+            {
+                name: "Glute Bridges",
+                target: "2 × 12–15",
+                muscle: "Glutes",
+                image: "🌉"
+            },
+
+            {
+                name: "Dead Bugs",
+                target: "2 × 8 each side",
+                muscle: "Core",
+                image: "🪲"
+            },
+
+            {
+                name: "Side Plank",
+                target: "2 × 15–30 sec / side",
+                muscle: "Obliques + Core",
+                image: "↔️"
+            }
+
+        ]
+
+    },
+
+
+    6: {
+
+        name: "Sports + Fun Activity",
+
+        focus:
+            "Badminton • Volleyball • Cycling • Walking",
+
+        exercises: [
+
+            {
+                name: "Badminton / Volleyball",
+                target: "20–40 min",
+                muscle: "Cardio + Coordination",
+                image: "🏸"
+            },
+
+            {
+                name: "Cycling",
+                target: "20–40 min",
+                muscle: "Cardio",
+                image: "🚲"
+            },
+
+            {
+                name: "Easy Walk",
+                target: "20–40 min",
+                muscle: "Active Recovery",
+                image: "🚶"
+            },
+
+            {
+                name: "Cool-down Stretch",
+                target: "3–5 min",
+                muscle: "Recovery",
+                image: "🧘"
+            }
+
+        ]
+
+    },
+
+
+    0: {
+
+        name: "Recovery Day",
+
+        focus:
+            "Recovery • Easy Movement",
+
+        exercises: [
+
+            {
+                name: "Easy Walk",
+                target: "10–20 min",
+                muscle: "Light Movement",
+                image: "🚶"
+            },
+
+            {
+                name: "Gentle Stretching",
+                target: "5–10 min",
+                muscle: "Mobility",
+                image: "🧘"
+            },
+
+            {
+                name: "Hydration + Normal Meals",
+                target: "Throughout day",
+                muscle: "Recovery",
+                image: "💧"
+            },
+
+            {
+                name: "Good Sleep",
+                target: "8–10 hours",
+                muscle: "Recovery",
+                image: "😴"
+            }
+
+        ]
+
+    }
+
+};
+
+
+/* ==========================================
+   STORAGE
+========================================== */
+
+const STORAGE_KEY =
+    "calisthenics_tracker_v1";
+
+
+let savedData =
+    JSON.parse(
+        localStorage.getItem(STORAGE_KEY) || "{}"
+    );
+
+
+/* ==========================================
+   CURRENT DATES
+========================================== */
+
+let calendarDate =
+    new Date();
+
+let selectedDate =
+    new Date();
+
+
+/* ==========================================
+   HELPER FUNCTIONS
+========================================== */
+
+
+function dateKey(date) {
+
+    return (
+
+        date.getFullYear() +
+        "-" +
+
+        String(
+            date.getMonth() + 1
+        ).padStart(2, "0") +
+
+        "-" +
+
+        String(
+            date.getDate()
+        ).padStart(2, "0")
+
+    );
+
 }
 
-$("search").addEventListener("input",e=>{state.query=e.target.value;$("clearSearch").classList.toggle("show",!!state.query);render();});
-$("clearSearch").onclick=()=>{state.query="";$("search").value="";$("clearSearch").classList.remove("show");render();};
-$("category").addEventListener("change",e=>{state.category=e.target.value;render();});
-document.querySelectorAll("#levels button").forEach(b=>b.addEventListener("click",()=>{
- state.level=b.dataset.level;
- document.querySelectorAll("#levels button").forEach(x=>x.classList.remove("active"));
- b.classList.add("active");render();
-}));
-$("todayBtn").onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
-render();
+
+function saveData() {
+
+    localStorage.setItem(
+
+        STORAGE_KEY,
+
+        JSON.stringify(savedData)
+
+    );
+
+}
+
+
+function getWorkout(date) {
+
+    return workouts[
+        date.getDay()
+    ];
+
+}
+
+
+function getCompletedExercises(date) {
+
+    return (
+        savedData[
+            dateKey(date)
+        ] || []
+    );
+
+}
+
+
+function workoutIsComplete(date) {
+
+    const workout =
+        getWorkout(date);
+
+    const completed =
+        getCompletedExercises(date);
+
+    return (
+
+        completed.length ===
+        workout.exercises.length
+
+    );
+
+}
+
+
+function formatDate(date) {
+
+    return date.toLocaleDateString(
+
+        undefined,
+
+        {
+            weekday: "long",
+            month: "long",
+            day: "numeric",
+            year: "numeric"
+        }
+
+    );
+
+}
+
+
+/* ==========================================
+   CALENDAR
+========================================== */
+
+function renderCalendar() {
+
+    const calendar =
+        document.getElementById(
+            "calendar"
+        );
+
+    const year =
+        calendarDate.getFullYear();
+
+    const month =
+        calendarDate.getMonth();
+
+
+    document.getElementById(
+        "monthTitle"
+    ).textContent =
+
+        calendarDate.toLocaleDateString(
+
+            undefined,
+
+            {
+                month: "long",
+                year: "numeric"
+            }
+
+        );
+
+
+    calendar.innerHTML = "";
+
+
+    /* WEEKDAY HEADERS */
+
+    const weekdays = [
+
+        "SUN",
+        "MON",
+        "TUE",
+        "WED",
+        "THU",
+        "FRI",
+        "SAT"
+
+    ];
+
+
+    weekdays.forEach(
+
+        day => {
+
+            const element =
+                document.createElement(
+                    "div"
+                );
+
+            element.className =
+                "weekday";
+
+            element.textContent =
+                day;
+
+            calendar.appendChild(
+                element
+            );
+
+        }
+
+    );
+
+
+    /* FIRST DAY */
+
+    const firstDay =
+        new Date(
+            year,
+            month,
+            1
+        ).getDay();
+
+
+    /* NUMBER OF DAYS */
+
+    const daysInMonth =
+        new Date(
+            year,
+            month + 1,
+            0
+        ).getDate();
+
+
+    /* EMPTY CELLS */
+
+    for (
+        let i = 0;
+        i < firstDay;
+        i++
+    ) {
+
+        const empty =
+            document.createElement(
+                "div"
+            );
+
+        empty.className =
+            "day empty";
+
+        calendar.appendChild(
+            empty
+        );
+
+    }
+
+
+    /* DAYS */
+
+    for (
+        let number = 1;
+        number <= daysInMonth;
+        number++
+    ) {
+
+        const date =
+            new Date(
+                year,
+                month,
+                number
+            );
+
+
+        const day =
+            document.createElement(
+                "button"
+            );
+
+        day.className =
+            "day";
+
+
+        /* TODAY */
+
+        const today =
+            new Date();
+
+
+        if (
+            dateKey(date) ===
+            dateKey(today)
+        ) {
+
+            day.classList.add(
+                "today"
+            );
+
+        }
+
+
+        /* WORKOUT DAY */
+
+        if (
+            date.getDay() >= 1 &&
+            date.getDay() <= 6
+        ) {
+
+            day.classList.add(
+                "workout-day"
+            );
+
+        }
+
+
+        /* SELECTED */
+
+        if (
+            dateKey(date) ===
+            dateKey(selectedDate)
+        ) {
+
+            day.classList.add(
+                "selected"
+            );
+
+        }
+
+
+        /* COMPLETED */
+
+        const completed =
+            workoutIsComplete(date);
+
+
+        if (completed) {
+
+            day.classList.add(
+                "completed"
+            );
+
+        }
+
+
+        day.innerHTML = `
+
+            <span class="day-number">
+                ${number}
+            </span>
+
+            <span class="day-name">
+                ${getWorkout(date).name}
+            </span>
+
+            ${
+                completed
+                ?
+                `<span class="check">✓</span>`
+                :
+                ""
+            }
+
+        `;
+
+
+        day.addEventListener(
+
+            "click",
+
+            () => {
+
+                selectedDate =
+                    date;
+
+                renderCalendar();
+
+                renderWorkout();
+
+                renderStats();
+
+
+                document
+                    .getElementById(
+                        "workoutSection"
+                    )
+                    .scrollIntoView({
+
+                        behavior: "smooth",
+
+                        block: "start"
+
+                    });
+
+            }
+
+        );
+
+
+        calendar.appendChild(
+            day
+        );
+
+    }
+
+}
+
+
+/* ==========================================
+   WORKOUT DISPLAY
+========================================== */
+
+function renderWorkout() {
+
+    const workout =
+        getWorkout(
+            selectedDate
+        );
+
+
+    const completed =
+        getCompletedExercises(
+            selectedDate
+        );
+
+
+    document.getElementById(
+        "workoutTitle"
+    ).textContent =
+        workout.name;
+
+
+    document.getElementById(
+        "workoutSubtitle"
+    ).textContent =
+
+        formatDate(
+            selectedDate
+        ) +
+
+        " • " +
+
+        workout.focus;
+
+
+    document.getElementById(
+        "dayBadge"
+    ).textContent =
+
+        selectedDate
+            .toLocaleDateString(
+                undefined,
+                {
+                    weekday: "short"
+                }
+            )
+            .toUpperCase();
+
+
+    const list =
+        document.getElementById(
+            "exerciseList"
+        );
+
+
+    list.innerHTML = "";
+
+
+    workout.exercises.forEach(
+
+        (exercise, index) => {
+
+            const element =
+                document.createElement(
+                    "label"
+                );
+
+
+            const isDone =
+                completed.includes(
+                    index
+                );
+
+
+            element.className =
+                "exercise";
+
+
+            if (isDone) {
+
+                element.classList.add(
+                    "done"
+                );
+
+            }
+
+
+            /*
+                IMPORTANT:
+
+                To use actual images later,
+                replace exercise.image
+                with an <img> element.
+
+                Example:
+
+                <img src="images/pushups.jpg">
+
+            */
+
+            element.innerHTML = `
+
+                <div class="exercise-image">
+
+                    ${exercise.image}
+
+                </div>
+
+
+                <div>
+
+                    <h4>
+                        ${exercise.name}
+                    </h4>
+
+                    <p>
+                        ${exercise.target}
+                        •
+                        ${exercise.muscle}
+                    </p>
+
+                </div>
+
+
+                <input
+                    type="checkbox"
+                    ${isDone ? "checked" : ""}
+                >
+
+            `;
+
+
+            const checkbox =
+                element.querySelector(
+                    "input"
+                );
+
+
+            checkbox.addEventListener(
+
+                "change",
+
+                () => {
+
+                    let current =
+                        getCompletedExercises(
+                            selectedDate
+                        );
+
+
+                    if (
+                        checkbox.checked
+                    ) {
+
+                        if (
+                            !current.includes(
+                                index
+                            )
+                        ) {
+
+                            current.push(
+                                index
+                            );
+
+                        }
+
+                    } else {
+
+                        current =
+                            current.filter(
+                                item =>
+                                    item !== index
+                            );
+
+                    }
+
+
+                    savedData[
+                        dateKey(
+                            selectedDate
+                        )
+                    ] = current;
+
+
+                    saveData();
+
+                    renderCalendar();
+
+                    renderWorkout();
+
+                    renderStats();
+
+                }
+
+            );
+
+
+            list.appendChild(
+                element
+            );
+
+        }
+
+    );
+
+
+    /* SESSION PROGRESS */
+
+    const total =
+        workout.exercises.length;
+
+    const completedCount =
+        completed.length;
+
+
+    const percentage =
+        Math.round(
+            completedCount /
+            total *
+            100
+        );
+
+
+    document.getElementById(
+        "sessionProgress"
+    ).textContent =
+
+        `${completedCount} / ${total}`;
+
+
+    document.getElementById(
+        "sessionBar"
+    ).style.width =
+
+        percentage + "%";
+
+
+    /* COMPLETION BANNER */
+
+    document
+        .getElementById(
+            "completionBanner"
+        )
+        .classList.toggle(
+
+            "hidden",
+
+            percentage !== 100
+
+        );
+
+}
+
+
+/* ==========================================
+   STATISTICS
+========================================== */
+
+function getCompletedWorkoutDates() {
+
+    return Object.keys(
+        savedData
+    ).filter(
+
+        key => {
+
+            const date =
+                new Date(
+                    key + "T12:00:00"
+                );
+
+            return workoutIsComplete(
+                date
+            );
+
+        }
+
+    );
+
+}
+
+
+function renderStats() {
+
+    const today =
+        new Date();
+
+
+    /*
+        Find Monday of current week.
+    */
+
+    const monday =
+        new Date(today);
+
+
+    const day =
+        today.getDay();
+
+
+    const difference =
+        day === 0
+        ? 6
+        : day - 1;
+
+
+    monday.setDate(
+        today.getDate() -
+        difference
+    );
+
+
+    let completedDays = 0;
+
+    let completedExercises = 0;
+
+
+    for (
+        let i = 0;
+        i < 7;
+        i++
+    ) {
+
+        const date =
+            new Date(monday);
+
+
+        date.setDate(
+            monday.getDate() + i
+        );
+
+
+        if (
+            workoutIsComplete(
+                date
+            )
+        ) {
+
+            completedDays++;
+
+        }
+
+
+        /*
+            Don't count future
+            days' exercises.
+        */
+
+        if (
+            date <= today
+        ) {
+
+            completedExercises +=
+
+                getCompletedExercises(
+                    date
+                ).length;
+
+        }
+
+    }
+
+
+    const weeklyPercentage =
+        Math.round(
+            completedDays / 7 * 100
+        );
+
+
+    document.getElementById(
+        "weekProgress"
+    ).textContent =
+
+        weeklyPercentage + "%";
+
+
+    document.getElementById(
+        "totalWorkouts"
+    ).textContent =
+
+        getCompletedWorkoutDates()
+            .length;
+
+
+    document.getElementById(
+        "exerciseProgress"
+    ).textContent =
+
+        completedExercises;
+
+
+    /* STREAK */
+
+    let streak = 0;
+
+    let checkDate =
+        new Date();
+
+
+    /*
+        If today isn't complete,
+        check yesterday.
+    */
+
+    if (
+        !workoutIsComplete(
+            checkDate
+        )
+    ) {
+
+        checkDate.setDate(
+            checkDate.getDate() - 1
+        );
+
+    }
+
+
+    while (
+        workoutIsComplete(
+            checkDate
+        )
+    ) {
+
+        streak++;
+
+        checkDate.setDate(
+            checkDate.getDate() - 1
+        );
+
+    }
+
+
+    document.getElementById(
+        "streak"
+    ).textContent = streak;
+
+}
+
+
+/* ==========================================
+   RESET DAY
+========================================== */
+
+document
+    .getElementById(
+        "resetDay"
+    )
+    .addEventListener(
+
+        "click",
+
+        () => {
+
+            const answer =
+                confirm(
+                    "Reset all exercises for this day?"
+                );
+
+
+            if (!answer) {
+
+                return;
+
+            }
+
+
+            delete savedData[
+                dateKey(
+                    selectedDate
+                )
+            ];
+
+
+            saveData();
+
+            renderCalendar();
+
+            renderWorkout();
+
+            renderStats();
+
+        }
+
+    );
+
+
+/* ==========================================
+   PREVIOUS MONTH
+========================================== */
+
+document
+    .getElementById(
+        "previousMonth"
+    )
+    .addEventListener(
+
+        "click",
+
+        () => {
+
+            calendarDate.setMonth(
+                calendarDate.getMonth() - 1
+            );
+
+            renderCalendar();
+
+        }
+
+    );
+
+
+/* ==========================================
+   NEXT MONTH
+========================================== */
+
+document
+    .getElementById(
+        "nextMonth"
+    )
+    .addEventListener(
+
+        "click",
+
+        () => {
+
+            calendarDate.setMonth(
+                calendarDate.getMonth() + 1
+            );
+
+            renderCalendar();
+
+        }
+
+    );
+
+
+/* ==========================================
+   TODAY BUTTON
+========================================== */
+
+document
+    .getElementById(
+        "todayButton"
+    )
+    .addEventListener(
+
+        "click",
+
+        () => {
+
+            calendarDate =
+                new Date();
+
+            selectedDate =
+                new Date();
+
+            renderCalendar();
+
+            renderWorkout();
+
+            renderStats();
+
+
+            document
+                .getElementById(
+                    "workoutSection"
+                )
+                .scrollIntoView({
+
+                    behavior: "smooth"
+
+                });
+
+        }
+
+    );
+
+
+/* ==========================================
+   INITIAL LOAD
+========================================== */
+
+renderCalendar();
+
+renderWorkout();
+
+renderStats();
