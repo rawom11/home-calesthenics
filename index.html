@@ -1,27 +1,374 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#080a0f">
-<title>Home Calisthenics</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=5">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Calisthenics Tracker</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<header class="topbar">
-<a class="brand" href="#library"><span class="brand-mark">HC</span><span><b>HOME CALISTHENICS</b><small>100+ EQUIPMENT-FREE MOVEMENTS</small></span></a>
-<button class="today" id="todayBtn">TODAY ↗</button>
-</header>
-<main class="wrap" id="library">
-<section class="hero"><div><p class="eyebrow">MOVEMENT DATABASE</p><h1>Exercise library</h1><p class="sub">100 equipment-free calisthenics movements, organized by level and training focus.</p></div><div class="count"><strong id="count">100</strong><span>MOVEMENTS</span></div></section>
-<section class="controls"><div class="search-wrap"><input id="search" type="search" placeholder="Search exercises..." autocomplete="off"><button id="clearSearch" class="clear" aria-label="Clear search">×</button></div>
-<select id="category" aria-label="Exercise category"><option value="all">All categories</option><option value="Push">Push</option><option value="Legs">Legs</option><option value="Core">Core</option><option value="Full Body">Full Body</option><option value="Mobility">Mobility</option></select></section>
-<div class="levels" id="levels"><button class="active" data-level="all">All</button><button data-level="beginner">Beginner</button><button data-level="intermediate">Intermediate</button><button data-level="pro">Pro</button></div>
-<div class="filter-summary" id="summary"></div><section class="grid" id="grid"></section>
-<div class="no-results hidden" id="empty"><strong>No movements found</strong><span>Try another search, level, or category.</span></div>
-</main>
-<footer>HOME CALISTHENICS <i></i> Your progress stays on this device.</footer>
-<script src="script.js?v=5"></script>
-</body></html>
+
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <!-- HEADER -->
+    <header class="navbar">
+
+        <div class="logo-area">
+            <div class="logo">⚡</div>
+
+            <div>
+                <h1>CALISTHENICS</h1>
+                <p>HOME WORKOUT TRACKER</p>
+            </div>
+        </div>
+
+        <button id="todayButton" class="today-button">
+            Today
+        </button>
+
+    </header>
+
+
+    <main class="container">
+
+        <!-- HERO -->
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <p class="eyebrow">
+                    YOUR TRAINING DASHBOARD
+                </p>
+
+                <h2>
+                    Build strength.<br>
+                    <span>Track every workout.</span>
+                </h2>
+
+                <p class="hero-description">
+                    A short and effective home calisthenics routine
+                    focused on arms, core, legs and overall fitness.
+                </p>
+
+            </div>
+
+            <div class="streak-card">
+
+                <p>CURRENT STREAK</p>
+
+                <strong id="streak">
+                    0
+                </strong>
+
+                <span>
+                    days 🔥
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- STAT CARDS -->
+        <section class="stats">
+
+            <div class="stat-card">
+
+                <p>THIS WEEK</p>
+
+                <strong id="weekProgress">
+                    0%
+                </strong>
+
+                <span>
+                    days completed
+                </span>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <p>TOTAL WORKOUTS</p>
+
+                <strong id="totalWorkouts">
+                    0
+                </strong>
+
+                <span>
+                    completed days
+                </span>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <p>EXERCISES</p>
+
+                <strong id="exerciseProgress">
+                    0
+                </strong>
+
+                <span>
+                    completed this week
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- CALENDAR -->
+        <section class="panel">
+
+            <div class="section-header">
+
+                <div>
+
+                    <p class="eyebrow">
+                        CONSISTENCY
+                    </p>
+
+                    <h3>
+                        Workout Calendar
+                    </h3>
+
+                </div>
+
+
+                <div class="calendar-controls">
+
+                    <button id="previousMonth">
+                        ←
+                    </button>
+
+                    <strong id="monthTitle">
+                        Month
+                    </strong>
+
+                    <button id="nextMonth">
+                        →
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div id="calendar" class="calendar">
+
+                <!-- JavaScript generates calendar -->
+
+            </div>
+
+
+            <div class="legend">
+
+                <span>
+                    <i class="legend-dot today"></i>
+                    Today
+                </span>
+
+                <span>
+                    <i class="legend-dot completed"></i>
+                    Completed
+                </span>
+
+                <span>
+                    <i class="legend-dot workout"></i>
+                    Workout day
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- WORKOUT -->
+        <section class="panel workout-panel" id="workoutSection">
+
+            <div class="section-header">
+
+                <div>
+
+                    <p class="eyebrow">
+                        DAILY SESSION
+                    </p>
+
+                    <h3 id="workoutTitle">
+                        Select a day
+                    </h3>
+
+                    <p id="workoutSubtitle" class="subtitle">
+                    </p>
+
+                </div>
+
+
+                <div id="dayBadge" class="day-badge">
+                    —
+                </div>
+
+            </div>
+
+
+            <!-- COMPLETION MESSAGE -->
+            <div id="completionBanner" class="completion-banner hidden">
+
+                <div class="completion-icon">
+                    ✓
+                </div>
+
+                <div>
+
+                    <strong>
+                        Workout completed!
+                    </strong>
+
+                    <small>
+                        This day has been saved to your history.
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- EXERCISES -->
+            <div id="exerciseList" class="exercise-list">
+
+                <!-- JavaScript generates exercises -->
+
+            </div>
+
+
+            <!-- PROGRESS -->
+            <div class="session-footer">
+
+                <div class="progress-container">
+
+                    <div class="progress-label">
+
+                        <span>
+                            Session progress
+                        </span>
+
+                        <strong id="sessionProgress">
+                            0 / 0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="progress-track">
+
+                        <div
+                            id="sessionBar"
+                            class="progress-bar">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    id="resetDay"
+                    class="reset-button">
+
+                    Reset day
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- TIPS -->
+        <section class="tips">
+
+            <div class="tip">
+
+                <span>01</span>
+
+                <div>
+
+                    <h4>
+                        Warm up
+                    </h4>
+
+                    <p>
+                        Spend around 3 minutes warming up
+                        before your workout.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="tip">
+
+                <span>02</span>
+
+                <div>
+
+                    <h4>
+                        Good form
+                    </h4>
+
+                    <p>
+                        Controlled repetitions are more
+                        important than high numbers.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="tip">
+
+                <span>03</span>
+
+                <div>
+
+                    <h4>
+                        Recover
+                    </h4>
+
+                    <p>
+                        Give your muscles time to recover
+                        between hard sessions.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        Your workout data is stored locally in this browser.
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+  </html>
